@@ -13,12 +13,23 @@ class MainActivity : AppCompatActivity() {
 
         btnDial.setOnClickListener {
 
-            val inputPhonNum = edtPhonNum.text.toString()
+            val inputPhonNum = edtPhoneNum.text.toString()
 
 //            Intent에 어디로 전화를 걸지 알려줘야 함. Uri를 이용해서 알려주자
             val myUri = Uri.parse("tel:${inputPhonNum}") //띄어쓰기는 하면 앱이 죽음.
 
             val myIntent = Intent(Intent.ACTION_DIAL,myUri)
+            startActivity(myIntent)
+
+        }
+
+        btnCall.setOnClickListener {
+
+            val inputPhoneNum = edtPhoneNum.text.toString()
+
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+
+            val myIntent = Intent(Intent.ACTION_CALL, myUri)
             startActivity(myIntent)
 
         }
